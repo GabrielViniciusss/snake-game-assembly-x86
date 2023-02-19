@@ -1,0 +1,3 @@
+cd /mnt/c/Users/bell2/Documents/Assembly
+nasm -f bin kernel.asm -o output.bin
+qemu-system-i386 output.bin
