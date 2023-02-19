@@ -382,15 +382,15 @@ main:
 
         ;se chegar aqui é pq houve colisao
         inc word [uvasPegas] ;aumentando o contador de uvas pegas
-        mov ax,[larguraCobra]
-        cmp ax,5             ;se o cara ja comeu 4 uvas vamos aumentar o nivel, aumentando a cobra de 2 em 2 segmentos a cada uva
+        mov ax,[uvasPegas]
+        cmp ax,5            ;se o cara ja comeu 4 uvas vamos aumentar o nivel, aumentando a cobra de 3 em 3 segmentos a cada uva
         jae aumentandoNivel
 
         inc word [larguraCobra] ;caso contrario apenas aumentamos a cobra de 1 em 1 segmento a cada uva
         jmp novaPosUva
 
         aumentandoNivel:
-            add word [larguraCobra],2
+            add word [larguraCobra],3
 
         comparacaoFinal:
             cmp word [uvasPegas],10 ;se conseguir pegar 10 uvas, vence o jogo, para isso a largura tera que ser igual a 17
