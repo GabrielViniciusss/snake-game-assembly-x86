@@ -4,7 +4,6 @@ jmp 0x0000:menu
 constantes:
     venceuString db "Parabens! Voce eh o Rei do snake game"
     menuString db "Pressione ENTER para comecar o jogo"
-    menuImg db 
     regrasString db "Pressione SPACE para ver as regras" ;34
     regra1 db "Ganhe comendo 10 uvas!" ;22
     caso db "Voce perde se:" ;14
@@ -282,7 +281,7 @@ main:
     atualizaCobra: ;loop que vai animar de fato a cobra. Cada segmento ocupara a posiçao do seu posterior, de tras para frente ate chegar na cabeça que n está ainda com sua posiçao atualizada no array
         imul bx,[larguraCobra],2 ;offset total de todos os elementos, bx indica inicio de um futuro novo elemento
         loop:
-            mov ax,[cobraArrayY-2+bx] ;para pegar o offset do ultimo elemento, temos q pegar o offset total e subtrair dois bytes(pois sao words). Ex: [2][2][2]bx -> bx - 2 = [2][2]bx, assim bx indica o começo do ultimo elemento
+            mov ax,[cobraArrayY-2+bx] ;para pegar o offset do ultimo elemento, temos q pegar o offset total e subtrair dois bytes(pois sao words). Ex: [2][2][2]bx -> bx - 2 = [2][2]bx, assim indicara o começo do ultimo elemento
             mov word [cobraArrayY+bx],ax ;agora o elemento que está na frente(na memoria) tera a posiçao do que está atras
 
             mov ax,[cobraArrayX-2+bx] ;mesma logica, so que para posiçao X agr
